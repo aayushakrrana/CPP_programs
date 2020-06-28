@@ -1,8 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-int binarySearch(int arr[],int l,int r,int x)
+/*
+int binarySearch(int arr[],int l,int r,int x) //recursive
 { 
 	if (r >= l) { 
 		int mid = (l + r)  / 2; 
@@ -18,8 +18,27 @@ int binarySearch(int arr[],int l,int r,int x)
 	} 
 
 	return -1; 
-} 
+} */
 
+int binarySearch(int arr[],int left,int right,int val) //iterative
+{
+	while(left<=right)
+	{
+		int mid=(left+right)/2;
+		if(arr[mid]==val)
+		return mid;
+		
+		if(arr[mid]>val)
+		{
+			right=mid-1;
+		}
+		if(arr[mid]<val)
+		{
+			left=mid+1;
+		}
+	}
+	return -1;
+}
 
 int main()
 {
